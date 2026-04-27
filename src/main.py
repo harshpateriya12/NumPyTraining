@@ -5,6 +5,7 @@ from task3_strike_rate import strike_rate_per_batter
 from task4_economy_rate import economy_rate_per_bowler
 from task5_runs_per_over import runs_per_over
 from task6_boundary_analysis import boundary_analysis
+from task7_death_overs import death_overs_analysis
 
 def main():
     file_path = "../data/deliveries.csv"
@@ -39,7 +40,7 @@ def main():
     # Task 4: Economy Rate
     economy_rates = economy_rate_per_bowler(bowler, batsman_runs)
 
-    print("\n--- Best Economy Bowlers (Top 5) ---")
+    print("\nBest Economy Bowlers (Top 5)")
 
 # Sort ascending (lower economy is better)
     economy_sorted = sorted(economy_rates, key=lambda x: x[1])
@@ -58,12 +59,21 @@ def main():
     #  Task 6: Boundary Analysis
     fours, sixes, top_team = boundary_analysis(batsman_runs, batting_team)
 
-    print("\n--- Boundary Analysis ---")
+    print("\nBoundary Analysis")
     print(f"Total Fours: {fours}")
     print(f"Total Sixes: {sixes}")
 
     print("\nTeam with Most Boundaries:")
     print(f"{top_team[0]}: {top_team[1]} boundaries")
+
+    # Task 7: Death Overs Analysis
+    death_total, top_team = death_overs_analysis(overs, batsman_runs, batting_team)
+
+    print("\nDeath Overs Analysis (16–20)")
+    print(f"Total Runs in Death Overs: {death_total}")
+
+    print("\nTop Scoring Team in Death Overs:")
+    print(f"{top_team[0]}: {top_team[1]} runs")
 
 
 if __name__ == "__main__":
