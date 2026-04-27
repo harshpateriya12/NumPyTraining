@@ -3,6 +3,7 @@ from task1_total_run import total_runs_per_match
 from task2_top_batters import top_5_batters
 from task3_strike_rate import strike_rate_per_batter
 from task4_economy_rate import economy_rate_per_bowler
+from task5_runs_per_over import runs_per_over
 
 def main():
     file_path = "../data/deliveries.csv"
@@ -44,6 +45,14 @@ def main():
 
     for player, eco in economy_sorted[:5]:
         print(f"{player}: {eco}")
+
+    #  Task 5: Runs per Over
+    avg_runs = runs_per_over(overs, batsman_runs)
+
+    print("\n--- Average Runs Per Over ---")
+
+    for i, avg in enumerate(avg_runs):
+      print(f"Over {i+1}: {avg}")
 
 if __name__ == "__main__":
     main()
