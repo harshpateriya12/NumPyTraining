@@ -2,6 +2,7 @@ from data_loader import load_deliveries_data
 from task1_total_run import total_runs_per_match
 from task2_top_batters import top_5_batters
 from task3_strike_rate import strike_rate_per_batter
+from task4_economy_rate import economy_rate_per_bowler
 
 def main():
     file_path = "../data/deliveries.csv"
@@ -32,6 +33,17 @@ def main():
 
     for player, sr in strike_rates_sorted[:5]:
          print(f"{player}: {sr}")
+
+    # Task 4: Economy Rate
+    economy_rates = economy_rate_per_bowler(bowler, batsman_runs)
+
+    print("\n--- Best Economy Bowlers (Top 5) ---")
+
+# Sort ascending (lower economy is better)
+    economy_sorted = sorted(economy_rates, key=lambda x: x[1])
+
+    for player, eco in economy_sorted[:5]:
+        print(f"{player}: {eco}")
 
 if __name__ == "__main__":
     main()
