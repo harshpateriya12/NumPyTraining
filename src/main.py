@@ -6,6 +6,7 @@ from task4_economy_rate import economy_rate_per_bowler
 from task5_runs_per_over import runs_per_over
 from task6_boundary_analysis import boundary_analysis
 from task7_death_overs import death_overs_analysis
+from task8_highest_scoring_match import highest_scoring_match
 
 def main():
     file_path = "../data/deliveries.csv"
@@ -74,6 +75,14 @@ def main():
 
     print("\nTop Scoring Team in Death Overs:")
     print(f"{top_team[0]}: {top_team[1]} runs")
+
+
+    # Task 8: Highest Scoring Match
+    match_id, runs = highest_scoring_match(match_ids, batsman_runs)
+
+    print("\n--- Highest Scoring Match ---")
+    print(f"Match ID: {match_id}")
+    print(f"Total Runs: {runs}")
 
 
 if __name__ == "__main__":
