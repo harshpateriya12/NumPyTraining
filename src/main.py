@@ -4,6 +4,7 @@ from task2_top_batters import top_5_batters
 from task3_strike_rate import strike_rate_per_batter
 from task4_economy_rate import economy_rate_per_bowler
 from task5_runs_per_over import runs_per_over
+from task6_boundary_analysis import boundary_analysis
 
 def main():
     file_path = "../data/deliveries.csv"
@@ -53,6 +54,17 @@ def main():
 
     for i, avg in enumerate(avg_runs):
       print(f"Over {i+1}: {avg}")
+
+    #  Task 6: Boundary Analysis
+    fours, sixes, top_team = boundary_analysis(batsman_runs, batting_team)
+
+    print("\n--- Boundary Analysis ---")
+    print(f"Total Fours: {fours}")
+    print(f"Total Sixes: {sixes}")
+
+    print("\nTeam with Most Boundaries:")
+    print(f"{top_team[0]}: {top_team[1]} boundaries")
+
 
 if __name__ == "__main__":
     main()
