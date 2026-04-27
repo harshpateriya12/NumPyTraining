@@ -1,6 +1,7 @@
 from data_loader import load_deliveries_data
 from task1_total_run import total_runs_per_match
 from task2_top_batters import top_5_batters
+from task3_strike_rate import strike_rate_per_batter
 
 def main():
     file_path = "../data/deliveries.csv"
@@ -20,6 +21,17 @@ def main():
     print("\n--- Top 5 Batters ---")
     for player, runs in top_batters:
         print(f"{player}: {runs} runs")
+
+    # Task 3: Strike Rate
+    strike_rates = strike_rate_per_batter(batter, batsman_runs)
+
+    print("\n--- Strike Rate (Top 5) ---")
+
+# Sort by strike rate descending
+    strike_rates_sorted = sorted(strike_rates, key=lambda x: x[1], reverse=True)
+
+    for player, sr in strike_rates_sorted[:5]:
+         print(f"{player}: {sr}")
 
 if __name__ == "__main__":
     main()
